@@ -1,0 +1,28 @@
+Building configuration...
+
+Current configuration:
+!
+frr version 8.2.2
+frr defaults traditional
+hostname frr
+service integrated-vtysh-config
+!
+interface eth0
+ ip address 10.0.12.2/30
+ ip ospf cost 100
+exit
+!
+interface eth1
+ ip address 10.0.23.1/30
+exit
+!
+interface rth0
+ ip ospf cost 100
+exit
+!
+router ospf
+ ospf router-id 2.2.2.2
+ network 10.0.0.0/8 area 0
+exit
+!
+end
